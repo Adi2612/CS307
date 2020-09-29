@@ -14,6 +14,9 @@ void tokenize(vector<string> &tokens) {
   getline(cin, input);
   stringstream input_stream(input);
   string temp;
+  
+  // todo : make it work for double quote 
+  // https://stackoverflow.com/questions/18675364/c-tokenize-a-string-with-spaces-and-quotes
   while(getline(input_stream, temp, ' ')){
     tokens.push_back(temp);
   }
