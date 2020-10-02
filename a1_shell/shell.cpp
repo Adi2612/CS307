@@ -10,9 +10,7 @@ vector<string> history_data;
 /**
  *  split the input command into array of tokens
 */
-void tokenize(vector<string> &tokens) {
-  string input;
-  getline(cin, input);
+void tokenize(vector<string> &tokens, string input) {
   history_data.push_back(input);
   string first_token = input.substr(0, input.find(' '));
   string second_token;
@@ -118,7 +116,9 @@ int main(int argc, char const *argv[]) {
     while(1) {
       current_dir();
       vector<string> tokens;
-      tokenize(tokens);
+      string input;
+      getline(cin, input);
+      tokenize(tokens, input);
       call_commands(tokens);
     }
   }
@@ -126,25 +126,24 @@ int main(int argc, char const *argv[]) {
     string filename = argv[1];
     ifstream f;
     f.open(filename);
+
     if (f.is_open()) {
       string buffer;
+
       while (getline (f, buffer)) {
         current_dir();
         vector<string> tokens;
-
-        /* buffer -> tokens */
-        
-        tokenize(tokens);
+        tokenize(tokens, buffer);
         call_commands(tokens);
       }
       f.close();
     }
     else {
-      /* error */
+      cout<<"File does not exist"<<endl;
     }
   }
   else {
-    /* error */
+    cout<<"Invalid number of command line arguments"<<endl;
   }
 
   return 0;
