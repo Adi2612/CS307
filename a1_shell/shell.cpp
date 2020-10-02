@@ -14,7 +14,7 @@ void tokenize(vector<string> &tokens) {
   getline(cin, input);
   stringstream input_stream(input);
   string temp;
-  
+
   // todo : make it work for double quote 
   // https://stackoverflow.com/questions/18675364/c-tokenize-a-string-with-spaces-and-quotes
   while(getline(input_stream, temp, ' ')){
@@ -27,13 +27,17 @@ void cd(vector<string> &tokens) {
 }
 
 void dir(vector<string> &tokens) {
-  char path[100];
-  getcwd(path, 100);
-  cout<<path<<endl;
+  
 }
 
 void echo(vector<string> &tokens) {
   // print the remaining tokens
+}
+
+void current_dir() {
+  char path[100];
+  getcwd(path, 100);
+  cout<<path<<"$ ";
 }
 
 /**
@@ -70,7 +74,7 @@ int main(int argc, char const *argv[]) {
   init_setup();
 
   while(1) {
-    cout<<">> ";
+    current_dir();
     vector<string> tokens;
     tokenize(tokens);
     call_commands(tokens);
