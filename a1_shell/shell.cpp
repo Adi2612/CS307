@@ -8,7 +8,7 @@ map<string, script_function> functions;
 vector<string> history_data;
 
 /**
- *  split the input command into array of tokens
+ *  split the input command into array of tokens in tokens
 */
 void tokenize(vector<string> &tokens) {
   string input;
