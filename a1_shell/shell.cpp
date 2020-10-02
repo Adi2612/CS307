@@ -112,14 +112,39 @@ void call_commands(vector<string> &tokens) {
 }
 
 int main(int argc, char const *argv[]) {
-
   init_setup();
 
-  while(1) {
-    current_dir();
-    vector<string> tokens;
-    tokenize(tokens);
-    call_commands(tokens);
+  if (argc == 1) {
+    while(1) {
+      current_dir();
+      vector<string> tokens;
+      tokenize(tokens);
+      call_commands(tokens);
+    }
+  }
+  else if (argc == 2) {
+    string filename = argv[1];
+    ifstream f;
+    f.open(filename);
+    if (f.is_open()) {
+      string buffer;
+      while (getline (f, buffer)) {
+        current_dir();
+        vector<string> tokens;
+
+        /* buffer -> tokens */
+        
+        tokenize(tokens);
+        call_commands(tokens);
+      }
+      f.close();
+    }
+    else {
+      /* error */
+    }
+  }
+  else {
+    /* error */
   }
 
   return 0;
