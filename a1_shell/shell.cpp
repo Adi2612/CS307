@@ -32,19 +32,26 @@ void current_dir() {
 }
 
 void cd(vector<string> &tokens) {
-  // todo : handle the case when path is not valid and print error
   // todo : change PWD shell env
   if(tokens.size() == 1) {
     current_dir();
   } else if(tokens.size() == 2) {
     char path[1024];
-    strcpy(path, tokens[1].c_str());
-    chdir(path);
+    int i = 0;
+    for(auto it : tokens[1]) {
+      if(it != '\\') {
+        path[i++] = it;
+      }
+    }
+    path[i] = '\0';
+    if(chdir(path) != 0) {
+      cout<<"Directory is not valid :/"<<endl;
+    }
   }
 }
 
 void dir(vector<string> &tokens) {
-
+  
 }
 
 void echo(vector<string> &tokens) {
