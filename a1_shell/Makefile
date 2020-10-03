@@ -1,2 +1,2 @@
 all: shell.cpp
-	g++ shell.cpp -w -o shell
+	g++ shell.cpp -w -o myshell

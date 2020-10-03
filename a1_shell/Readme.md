@@ -21,13 +21,11 @@ Aaditya Arora (B17071), Anvay Shah (B17078)
 Compile the file shell.cpp and run the executable.
 ```
 make
-./shell
+./myshell
 ```
 ## 2. Taking commands from a batchfile
 Switch to the directory.
-```
-cd System-Practicum
-```
+
 Compile the file myshell.cpp. Run the executable and also mention the name of the file containing the commands.
 ```
 make
