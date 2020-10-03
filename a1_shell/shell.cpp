@@ -4,6 +4,7 @@
 
 using namespace std;
 const string WHITESPACE = " \n\r\t\f\v";
+extern char **environ;
 typedef void (*script_function)(vector<string>&); 
 map<string, script_function> functions;
 vector<string> history_data;
@@ -115,6 +116,15 @@ void clr(vector<string> &tokens) {
   system("clear");
 }
 
+void environ_(vector<string> &tokens) {
+  for (char **env = environ; *env != 0; env++)
+  {
+    char *thisEnv = *env;
+    printf("%s\n", thisEnv);    
+  }
+
+}
+
 /**
  * map command to function pointers
 */
@@ -122,7 +132,7 @@ void init_setup() {
   functions["cd"] = &cd;
   functions["clr"] = &clr;
   functions["dir"] = &dir;
-  // functions["environ"] = &environ;
+  functions["environ"] = &environ_;
   functions["echo"] = &echo;
   // functions["pause"] = &pause;
   functions["help"] = &help;
@@ -146,7 +156,6 @@ void call_commands(vector<string> &tokens) {
 
 int main(int argc, char const *argv[]) {
   init_setup();
-
   if (argc == 1) {
     while(1) {
       current_dir();
