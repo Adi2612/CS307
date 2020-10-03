@@ -97,9 +97,8 @@ void echo(vector<string> &tokens) {
 }
 
 void history(vector<string> &tokens) {
-  // todo : skip last element in array.
-  for(auto it : history_data){
-    cout<<it<<endl;
+  for(int i = 0 ; i < history_data.size() - 1 ; i++){
+    cout<<history_data[i]<<endl;
   }
 }
 
