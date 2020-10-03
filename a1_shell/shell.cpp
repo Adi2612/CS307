@@ -4,6 +4,12 @@
 
 using namespace std;
 const string WHITESPACE = " \n\r\t\f\v";
+const std::string red("\033[0;31m");
+const std::string green("\033[1;32m");
+const std::string yellow("\033[1;33m");
+const std::string cyan("\033[0;36m");
+const std::string magenta("\033[0;35m");
+const std::string reset("\033[0m");
 typedef void (*script_function)(vector<string>&); 
 map<string, script_function> functions;
 map<string, string> env_data;
@@ -50,6 +56,10 @@ void current_dir() {
   char path[100];
   getcwd(path, 100);
   cout<<path<<"$ ";
+}
+
+void shell_name() {
+  cout<<yellow<<env_data["LOGNAME"]<<"@myshell"<<reset<<":"<<cyan<<env_data["PWD"]<<reset<<"$ ";
 }
 
 void cd(vector<string> &tokens) {
@@ -193,7 +203,7 @@ int main(int argc, char const *argv[]) {
   init_setup(argv[0]);
   if (argc == 1) {
     while(1) {
-      current_dir();
+      shell_name();
       vector<string> tokens;
       string input;
       getline(cin, input);
