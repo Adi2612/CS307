@@ -3,24 +3,24 @@
 #include <dirent.h>
 
 using namespace std;
-const std::string WHITESPACE = " \n\r\t\f\v";
+const string WHITESPACE = " \n\r\t\f\v";
 typedef void (*script_function)(vector<string>&); 
 map<string, script_function> functions;
 vector<string> history_data;
 
-std::string ltrim(const std::string& s)
+string ltrim(const string& s)
 {
 	size_t start = s.find_first_not_of(WHITESPACE);
-	return (start == std::string::npos) ? "" : s.substr(start);
+	return (start == string::npos) ? "" : s.substr(start);
 }
 
-std::string rtrim(const std::string& s)
+string rtrim(const string& s)
 {
 	size_t end = s.find_last_not_of(WHITESPACE);
-	return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+	return (end == string::npos) ? "" : s.substr(0, end + 1);
 }
 
-std::string trim(const std::string& s)
+string trim(const string& s)
 {
 	return rtrim(ltrim(s));
 }
