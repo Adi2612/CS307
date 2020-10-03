@@ -9,6 +9,13 @@ typedef void (*script_function)(vector<string>&);
 map<string, script_function> functions;
 vector<string> history_data;
 
+void set_env(string left, string right) {
+  string var = left+'='+right;
+  char path[1024];
+  strcpy(path, var.c_str());
+  putenv(path);
+}
+
 string ltrim(const string& s)
 {
 	size_t start = s.find_first_not_of(WHITESPACE);
@@ -49,7 +56,6 @@ void current_dir() {
 }
 
 void cd(vector<string> &tokens) {
-  // todo : change PWD shell env
   if(tokens.size() == 1) {
     current_dir();
     cout<<endl;
@@ -69,6 +75,11 @@ void cd(vector<string> &tokens) {
     if(chdir(path) != 0) {
       cout<<"Directory is not valid :/"<<endl;
     }
+    char current_dir[100];
+    getcwd(current_dir, 100);
+    string str(current_dir);
+    set_env("PWD", str);
+
   }
 }
 
@@ -129,6 +140,11 @@ void environ_(vector<string> &tokens) {
  * map command to function pointers
 */
 void init_setup() {
+  // set PWD
+  char path[100];
+  getcwd(path,100);
+  set_env("PWD", path);
+
   functions["cd"] = &cd;
   functions["clr"] = &clr;
   functions["dir"] = &dir;
