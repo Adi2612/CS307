@@ -4,7 +4,6 @@
 
 using namespace std;
 const string WHITESPACE = " \n\r\t\f\v";
-extern char **environ;
 typedef void (*script_function)(vector<string>&); 
 map<string, script_function> functions;
 vector<string> history_data;
@@ -74,11 +73,12 @@ void cd(vector<string> &tokens) {
     path[k] = '\0';
     if(chdir(path) != 0) {
       cout<<"Directory is not valid :/"<<endl;
+    } else {
+      char current_dir[100];
+      getcwd(current_dir, 100);
+      string str(current_dir);
+      set_env("PWD", str);
     }
-    char current_dir[100];
-    getcwd(current_dir, 100);
-    string str(current_dir);
-    set_env("PWD", str);
 
   }
 }
@@ -128,12 +128,11 @@ void clr(vector<string> &tokens) {
 }
 
 void environ_(vector<string> &tokens) {
-  for (char **env = environ; *env != 0; env++)
-  {
-    char *thisEnv = *env;
-    printf("%s\n", thisEnv);    
+  extern char **environ;
+  int i = 0;
+  while(environ[i]) {
+    printf("%s\n", environ[i++]); 
   }
-
 }
 
 void pause(vector<string> &tokens) {
@@ -148,10 +147,6 @@ void pause(vector<string> &tokens) {
  * map command to function pointers
 */
 void init_setup() {
-  // set PWD
-  char path[100];
-  getcwd(path,100);
-  set_env("PWD", path);
 
   functions["cd"] = &cd;
   functions["clr"] = &clr;
