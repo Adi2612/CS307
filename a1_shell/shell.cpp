@@ -1,11 +1,30 @@
 #include<bits/stdc++.h>
 #include<unistd.h>  
+#include <dirent.h>
 
 using namespace std;
-
+const std::string WHITESPACE = " \n\r\t\f\v";
 typedef void (*script_function)(vector<string>&); 
 map<string, script_function> functions;
 vector<string> history_data;
+
+std::string ltrim(const std::string& s)
+{
+	size_t start = s.find_first_not_of(WHITESPACE);
+	return (start == std::string::npos) ? "" : s.substr(start);
+}
+
+std::string rtrim(const std::string& s)
+{
+	size_t end = s.find_last_not_of(WHITESPACE);
+	return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+
+std::string trim(const std::string& s)
+{
+	return rtrim(ltrim(s));
+}
+
 
 /**
  *  split the input command into array of tokens
@@ -17,9 +36,8 @@ void tokenize(vector<string> &tokens, string input) {
   tokens.push_back(first_token);
   if(first_token.size() != input.size()) {
     second_token = input.substr(input.find(' ') + 1, input.find('\n'));
-    bool white_spaces_only = second_token.find_first_not_of(' ') == std::string::npos;
-    if(!white_spaces_only)
-      tokens.push_back(second_token);
+    if(trim(second_token).size())
+      tokens.push_back(trim(second_token));
   }
 }
 
@@ -33,15 +51,20 @@ void cd(vector<string> &tokens) {
   // todo : change PWD shell env
   if(tokens.size() == 1) {
     current_dir();
+    cout<<endl;
   } else if(tokens.size() == 2) {
     char path[1024];
-    int i = 0;
-    for(auto it : tokens[1]) {
-      if(it != '\\') {
-        path[i++] = it;
+    int k = 0;
+    for(int i = 0 ; i < tokens[1].size();  i++) {
+      if(tokens[1][i] == '\\') {
+        if(i+1 < tokens[1].size()) {
+          path[k++] = tokens[1][++i];
+        }
+      } else if(tokens[1][i] != ' ') {
+        path[k++] = tokens[1][i];
       }
     }
-    path[i] = '\0';
+    path[k] = '\0';
     if(chdir(path) != 0) {
       cout<<"Directory is not valid :/"<<endl;
     }
@@ -49,7 +72,20 @@ void cd(vector<string> &tokens) {
 }
 
 void dir(vector<string> &tokens) {
-  
+  struct dirent *entry;
+  char path[1024] = ".";
+  if(tokens.size() == 2) {
+    strcpy(path, tokens[1].c_str());
+  }
+  DIR *dir = opendir(path);
+  if(dir == NULL) {
+    cout<<"Directory is not valid :/"<<endl;
+  } else {
+   while ((entry = readdir(dir)) != NULL) {
+    cout << entry->d_name << endl;
+   }
+   closedir(dir);
+  }
 }
 
 void echo(vector<string> &tokens) {
