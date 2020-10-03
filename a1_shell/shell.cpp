@@ -42,11 +42,12 @@ string trim(const string& s)
 */
 void tokenize(vector<string> &tokens, string input) {
   history_data.push_back(input);
-  string first_token = input.substr(0, input.find(' '));
+  string temp = input.substr(input.find_first_not_of(" "), input.size());
+  string first_token = temp.substr(0, temp.find_first_of(" \n"));
   string second_token;
   tokens.push_back(first_token);
-  if(first_token.size() != input.size()) {
-    second_token = input.substr(input.find(' ') + 1, input.find('\n'));
+  if(first_token.size() != temp.size()) {
+    second_token = temp.substr(temp.find(' ') + 1, temp.find('\n'));
     if(trim(second_token).size())
       tokens.push_back(trim(second_token));
   }
