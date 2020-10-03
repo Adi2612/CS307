@@ -12,6 +12,7 @@ Aaditya Arora (B17071), Anvay Shah (B17078)
 7. help - Displays the user manual.
 8. quit - Quits the shell.
 9. history - Displays the previous commands.
+10. wc - display the word count in a file.
 
 # Command -- For running 
 
