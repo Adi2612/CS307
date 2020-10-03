@@ -17,15 +17,11 @@ Aaditya Arora (B17071), Anvay Shah (B17078)
 
 ## 1. Taking commands from the terminal
 
-Switch to the directory.
-```
-cd System-Practicum
-```
 
-Compile the file myshell.cpp and run the executable.
+Compile the file shell.cpp and run the executable.
 ```
-g++ myshell.cpp -w -o myshell
-./myshell
+make
+./shell
 ```
 ## 2. Taking commands from a batchfile
 Switch to the directory.
@@ -34,7 +30,7 @@ cd System-Practicum
 ```
 Compile the file myshell.cpp. Run the executable and also mention the name of the file containing the commands.
 ```
-g++ myshell.cpp -w -o myshell
+make
 ./myshell <filename>
 ```
 
