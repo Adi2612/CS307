@@ -136,6 +136,14 @@ void environ_(vector<string> &tokens) {
 
 }
 
+void pause(vector<string> &tokens) {
+  int n;
+  while(n = cin.get()) {
+    if(n == int('\n'))
+      break;
+  }
+}
+
 /**
  * map command to function pointers
 */
@@ -150,7 +158,7 @@ void init_setup() {
   functions["dir"] = &dir;
   functions["environ"] = &environ_;
   functions["echo"] = &echo;
-  // functions["pause"] = &pause;
+  functions["pause"] = &pause;
   functions["help"] = &help;
   functions["quit"] = &quit;
   functions["history"] = &history;
