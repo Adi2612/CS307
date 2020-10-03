@@ -171,7 +171,7 @@ void wc(vector<string> &tokens) {
       string buffer;
 
       while (getline (f, buffer)) {
-        characters += buffer.size();
+        characters += buffer.size() + 1;
         lines ++;
 
         bool state = 0;
