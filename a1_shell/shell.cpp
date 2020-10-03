@@ -276,9 +276,11 @@ string take_input() {
               cout<<"\b \b";
           if(history_index < history_data.size() - 1) {
             cout<<history_data[++history_index];
+          } else {
+            history_index = -1;
           }
         }
-      }
+      } 
     } else {
       break;
     }
