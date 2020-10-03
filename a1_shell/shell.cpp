@@ -136,7 +136,7 @@ void help(vector<string> &tokens) {
   cout<<"6. quit : Exit shell"<<endl;
   cout<<"7. environ : Display list of environment variables"<<endl;
   cout<<"8. pause: Pauses shell, enter key to resume"<<endl;
-
+  cout<<"9. wc <filename>: Counts words, lines and characters in given file"<<endl;
 }
 
 void clr(vector<string> &tokens) {
@@ -154,6 +154,50 @@ void pause(vector<string> &tokens) {
   while(n = cin.get()) {
     if(n == int('\n'))
       break;
+  }
+}
+
+void wc(vector<string> &tokens) {
+  if (tokens.size() == 2) {
+    int words = 0;
+    int lines = 0;
+    int characters = 0;
+
+    string filename = tokens[1];
+    ifstream f;
+    f.open(filename);
+
+    if (f.is_open()) {
+      string buffer;
+
+      while (getline (f, buffer)) {
+        characters += buffer.size();
+        lines ++;
+
+        bool state = 0;
+        for (int i = 0; i < buffer.size(); i++)
+        {
+          if (buffer[i] == ' ' && state == 1) {
+            state = 0;
+            words++;
+          }
+          else if (i == buffer.size()-1 && state == 1) {
+            words++;
+          }
+          else {
+            state = 1;
+          }
+        }
+      }
+      f.close();
+
+      cout<<"Words : "<<words<<endl;
+      cout<<"Lines : "<<lines<<endl;
+      cout<<"Characters : "<<characters<<endl;
+    }
+    else {
+      cout<<"File does not exist"<<endl;
+    }
   }
 }
 
@@ -182,6 +226,7 @@ void init_setup(string env_path) {
   functions["help"] = &help;
   functions["quit"] = &quit;
   functions["history"] = &history;
+  functions["wc"] = &wc;
 }
 
 /**
