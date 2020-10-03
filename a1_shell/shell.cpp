@@ -120,7 +120,16 @@ void quit(vector<string> &tokens) {
 
 void help(vector<string> &tokens) {
   // todo : add necessary stuff here.
-  cout<<" Fill it with helps :)"<<endl;
+  cout<<"Below is a list of commands and their functions:"<<endl;
+  cout<<"1. cd <path> : Change current working directory to <path>"<<endl;
+  cout<<"2. clr : Clear Screen"<<endl;
+  cout<<"3. dir : Display all files and folders in current working directory"<<endl;
+  cout<<"4. echo <string> : Displays <string>"<<endl;
+  cout<<"5. history : Shows a list of recently used commands"<<endl;
+  cout<<"6. quit : Exit shell"<<endl;
+  cout<<"7. environ : Display list of environment variables"<<endl;
+  cout<<"8. pause: Pauses shell, enter key to resume"<<endl;
+
 }
 
 void clr(vector<string> &tokens) {
