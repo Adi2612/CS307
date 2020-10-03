@@ -6,13 +6,11 @@ using namespace std;
 const string WHITESPACE = " \n\r\t\f\v";
 typedef void (*script_function)(vector<string>&); 
 map<string, script_function> functions;
+map<string, string> env_data;
 vector<string> history_data;
 
 void set_env(string left, string right) {
-  string var = left+'='+right;
-  char path[1024];
-  strcpy(path, var.c_str());
-  putenv(path);
+  env_data[left]=right;
 }
 
 string ltrim(const string& s)
@@ -137,10 +135,8 @@ void clr(vector<string> &tokens) {
 }
 
 void environ_(vector<string> &tokens) {
-  extern char **environ;
-  int i = 0;
-  while(environ[i]) {
-    printf("%s\n", environ[i++]); 
+  for(auto it : env_data) {
+    cout<<it.first<<"="<<it.second<<endl;
   }
 }
 
@@ -155,8 +151,19 @@ void pause(vector<string> &tokens) {
 /**
  * map command to function pointers
 */
-void init_setup() {
-
+void init_setup(string env_path) {
+  extern char **environ;
+  int i = 0;
+  while(environ[i]) {
+    string s(environ[i++]);
+    string first_token = s.substr(0, s.find('='));
+    string second_token = s.substr(s.find('=') + 1, s.find('\0'));    
+    env_data[first_token] = second_token;
+  }
+  char path[100];
+  getcwd(path, 100);
+  string directory(path);
+  set_env("SHELL", directory + env_path.substr(1, env_path.size()));
   functions["cd"] = &cd;
   functions["clr"] = &clr;
   functions["dir"] = &dir;
@@ -183,7 +190,7 @@ void call_commands(vector<string> &tokens) {
 }
 
 int main(int argc, char const *argv[]) {
-  init_setup();
+  init_setup(argv[0]);
   if (argc == 1) {
     while(1) {
       current_dir();
