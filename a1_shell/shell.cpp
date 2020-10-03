@@ -52,10 +52,10 @@ void tokenize(vector<string> &tokens, string input) {
   }
 }
 
-void current_dir() {
+void print_current_dir() {
   char path[100];
   getcwd(path, 100);
-  cout<<path<<"$ ";
+  cout<<path<<endl;
 }
 
 void shell_name() {
@@ -64,8 +64,7 @@ void shell_name() {
 
 void cd(vector<string> &tokens) {
   if(tokens.size() == 1) {
-    current_dir();
-    cout<<endl;
+    print_current_dir();
   } else if(tokens.size() == 2) {
     char path[1024];
     int k = 0;
@@ -220,7 +219,6 @@ int main(int argc, char const *argv[]) {
       string buffer;
 
       while (getline (f, buffer)) {
-        current_dir();
         vector<string> tokens;
         tokenize(tokens, buffer);
         call_commands(tokens);
