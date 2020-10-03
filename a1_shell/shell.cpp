@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 #include<unistd.h>  
 #include <dirent.h>
+#include <termios.h>
+#define STDIN_FILENO 0
+
 
 using namespace std;
 const string WHITESPACE = " \n\r\t\f\v";
@@ -14,6 +17,7 @@ typedef void (*script_function)(vector<string>&);
 map<string, script_function> functions;
 map<string, string> env_data;
 vector<string> history_data;
+int history_index = -1;
 
 void set_env(string left, string right) {
   env_data[left]=right;
@@ -243,14 +247,70 @@ void call_commands(vector<string> &tokens) {
   }
 }
 
+string take_input() {
+  char c,d,e;
+  
+  while(1) {
+    c = (char)cin.get();
+    if(c == 27) {
+      d = (char)cin.get();
+      if(d == 91)
+        e = (char)cin.get();
+      else
+        break;
+      cout<<"\b \b"<<"\b \b"<<"\b \b"<<"\b \b";
+      if(e == 65) { // UP
+        if(history_index == -1) {
+          if(history_data.size()) {
+            history_index = history_data.size() - 1;
+            cout<<history_data[history_index];
+          }
+        } else if(history_index > 0) {
+          for(auto it : history_data[history_index])
+            cout<<"\b \b";
+          cout<<history_data[--history_index];
+        }
+      } else if(e == 66) { // DOWN
+        if(history_index != -1 ) {
+          for(auto it : history_data[history_index])
+              cout<<"\b \b";
+          if(history_index < history_data.size() - 1) {
+            cout<<history_data[++history_index];
+          }
+        }
+      }
+    } else {
+      break;
+    }
+  }
+  if(c != 10) { // not enter
+    string s;
+    string _ret;
+    s.push_back(c);
+    getline(cin, _ret);
+    return s+_ret;
+  } else { // enter
+    int index = history_index;
+    history_index = -1;
+    return history_data[index];
+  }
+
+}
+
 int main(int argc, char const *argv[]) {
+  // Black magic to prevent Linux from buffering keystrokes.
+  struct termios t;
+  tcgetattr(STDIN_FILENO, &t);
+  t.c_lflag &= ~ICANON;
+  tcsetattr(STDIN_FILENO, TCSANOW, &t);
+
   init_setup(argv[0]);
   if (argc == 1) {
     while(1) {
       shell_name();
       vector<string> tokens;
-      string input;
-      getline(cin, input);
+      string input = take_input();
+      // getline(cin, input);
       tokenize(tokens, input);
       call_commands(tokens);
     }
