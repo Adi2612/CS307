@@ -1,0 +1,229 @@
+Philosopher 0 state : Thinking
+Philosopher 1 state : Thinking
+Philosopher 2 state : Thinking
+Philosopher 3 state : Thinking
+Philosopher 4 state : Thinking
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 0 state : Fork picked up
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 0 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 2 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 4 state : Thinking
+Philosopher 3 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 2 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 0 state : Fork picked up
+Philosopher 2 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 1 state : Eating
+Philosopher 3 state : Thinking
+Philosopher 1 state : Thinking
+Philosopher 0 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 4 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 3 state : Thinking
+Philosopher 0 state : Thinking
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 4 state : Fork picked up
+Philosopher 1 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 4 state : Eating
+Philosopher 2 state : Eating
+Philosopher 4 state : Thinking
+Philosopher 2 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 4 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 4 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 4 state : Thinking
+Philosopher 0 state : Fork picked up
+Philosopher 2 state : Thinking
+Philosopher 1 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 0 state : Eating
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 2 state : Eating
+Philosopher 4 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 4 state : Thinking
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 0 state : Fork picked up
+Philosopher 1 state : Thinking
+Philosopher 0 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 4 state : Thinking
+Philosopher 3 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 4 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 4 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 4 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 0 state : Thinking
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 3 state : Fork picked up
+Philosopher 1 state : Thinking
+Philosopher 4 state : Thinking
+Philosopher 3 state : Eating
+Philosopher 3 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 4 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 4 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 4 state : Thinking
+Philosopher 2 state : Thinking
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 4 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 3 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 4 state : Thinking
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 3 state : Fork picked up
+Philosopher 4 state : Thinking
+Philosopher 3 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 3 state : Thinking
+Philosopher 0 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 3 state : Fork picked up
+Philosopher 4 state : Thinking
+Philosopher 3 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 1 state : Fork picked up
+Philosopher 3 state : Thinking
+Philosopher 2 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 1 state : Eating
+Philosopher 0 state : Fork picked up
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 0 state : Eating
+Philosopher 3 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 1 state : Fork picked up
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 4 state : Thinking
+Philosopher 3 state : Eating
+Philosopher 1 state : Thinking
+Philosopher 3 state : Thinking
+Philosopher 4 state : Fork picked up
+Philosopher 4 state : Eating
+Philosopher 1 state : Fork picked up
+Philosopher 1 state : Eating
+Philosopher 4 state : Thinking
+Philosopher 1 state : Thinking
+Philosopher 3 state : Fork picked up
+Philosopher 3 state : Eating
+Philosopher 2 state : Fork picked up
+Philosopher 0 state : Fork picked up
+Philosopher 0 state : Eating
+Philosopher 3 state : Thinking
+Philosopher 2 state : Eating
+Philosopher 0 state : Thinking
+Philosopher 2 state : Thinking
+Philosopher 2 state : Fork picked up
+Philosopher 2 state : Eating
+Philosopher 2 state : Thinking
+Philosopher 0 count : 12
+Philosopher 1 count : 14
+Philosopher 2 count : 16
+Philosopher 3 count : 16
+Philosopher 4 count : 15
